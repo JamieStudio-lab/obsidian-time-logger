@@ -1,11 +1,11 @@
 {
-	"id": "obsidian-sample-plugin",
-	"name": "Sample Plugin",
-	"version": "1.0.0",
-	"minAppVersion": "0.15.0",
-	"description": "This is a sample plugin for Obsidian. This plugin demonstrates some of the capabilities of the Obsidian API.",
-	"author": "Obsidian",
-	"authorUrl": "https://obsidian.md",
-	"fundingUrl": "https://obsidian.md/pricing",
+	"id": "obsidian-time-logger",
+	"name": "Obsidian Time Logger",
+	"version": "0.0.0",
+	"minAppVersion": "0.15.9",
+	"description": "This is a time management plugin for Obsidian. You can manage your tasks, schedule, and record your actual arrangements for review.",
+	"author": "JamStudio",
+	"authorUrl": "https://jam-studio.cn",
+	"fundingUrl": {"Buy Me a Coffee": "https://www.buymeacoffee.com/jamstudio1"},
 	"isDesktopOnly": false
 }

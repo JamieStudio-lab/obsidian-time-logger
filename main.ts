@@ -1,4 +1,5 @@
 import { App, Editor, MarkdownView, Modal, Notice, Plugin, PluginSettingTab, Setting } from 'obsidian';
+import { InsertLinkModal } from "./modal";
 
 // Remember to rename these classes and interfaces!
 
@@ -17,9 +18,9 @@ export default class MyPlugin extends Plugin {
 		await this.loadSettings();
 
 		// This creates an icon in the left ribbon.
-		const ribbonIconEl = this.addRibbonIcon('dice', 'Sample Plugin', (evt: MouseEvent) => {
+		const ribbonIconEl = this.addRibbonIcon('dice', 'Obsidian Time Logger', (evt: MouseEvent) => {
 			// Called when the user clicks the icon.
-			new Notice('This is a notice!');
+			new Notice('This is a notice of obsidian time logger plugin!');
 		});
 		// Perform additional things with the ribbon
 		ribbonIconEl.addClass('my-plugin-ribbon-class');
@@ -45,6 +46,20 @@ export default class MyPlugin extends Plugin {
 				editor.replaceSelection('Sample Editor Command');
 			}
 		});
+
+		this.addCommand({
+			id: 'insert-link',
+			name: 'Insert link',
+			editorCallback: (editor: Editor, view: MarkdownView) => {
+				const selectedText = editor.getSelection();
+				const onSubmit = (text: string, url: string) => {
+          editor.replaceSelection(`[${text}](${url})`);
+        };
+
+        new InsertLinkModal(this.app, selectedText, onSubmit).open();
+			},
+		});
+
 		// This adds a complex command that can check whether the current state of the app allows execution of the command
 		this.addCommand({
 			id: 'open-sample-modal-complex',
